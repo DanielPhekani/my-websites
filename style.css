@@ -407,3 +407,14 @@ footer {
     margin-top: 20px;
     font-size: 14px;
 }
+
+/* CV Section */
+#cv {
+    text-align: center;
+}
+
+#cv p {
+    max-width: 700px;
+    margin: 0 auto 25px;
+    line-height: 1.7;
+}
