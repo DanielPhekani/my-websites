@@ -52,10 +52,24 @@
 
         <section id="about">
             <h2>About Me</h2>
+         <div class="about-content">
             <p>
-                I am an ICT professional interested in software development,
-                digital health systems and information technology.
+                I am an ICT professional and software developer with experience
+                in Health Information Systems, database management, data
+                management and digital health technologies.
             </p>
+            <p>
+              I have worked with technologies and platforms including
+              SQL, DHIS2, electronic medical records and web technologies.
+              I am passionate about developing practical digital solutions
+              that improve how information is collected, managed and used.
+            </p>
+           <p>
+             I am currently expanding my software development skills,
+             with a focus on building modern web applications and
+             information systems.
+            </p>
+         </div>
         </section>
 
 <section id="projects">
@@ -103,43 +117,134 @@
         <section id="skills">
 <h2>My Skills</h2>
 
-    <button onclick="toggleSkills()">Show / Hide Skills</button>
+<section id="skills">
 
-    <ul id="skillList">
-        <li>Health Information Systems</li>
-        <li>Database Management</li>
-        <li>DHIS2</li>
-        <li>SQL</li>
-        <li>Software Development</li>
-    </ul>
+    <h2>My Skills</h2>
+
+    <div class="skills-container">
+
+        <div class="skill-card">
+            <h3>Health Information Systems</h3>
+            <p>EMR, HMIS, DHIS2 and digital health systems.</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Database Management</h3>
+            <p>SQL, data management and database systems.</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Web Development</h3>
+            <p>HTML, CSS and JavaScript.</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Data Management</h3>
+            <p>Data collection, analysis, reporting and visualization.</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>DHIS2</h3>
+            <p>Health data collection, management and reporting.</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Software Development</h3>
+            <p>Developing practical applications and digital solutions.</p>
+        </div>
+
+    </div>
+
 </section>
 
 <section id="contact">
     <h2>Contact Me</h2>
+    <section id="contact">
 
-    <form id="contactForm">
+    <h2>Contact Me</h2>
 
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
+    <p class="contact-intro">
+        Have a project, opportunity or question?
+        Feel free to get in touch.
+    </p>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email">
+    <div class="contact-container">
 
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="5"></textarea>
+        <div class="contact-info">
 
-        <button type="submit">Send Message</button>
+            <h3>Let's Work Together</h3>
 
-        <p id="formMessage"></p>
+            <p>
+                I'm interested in software development, digital health
+                systems, information technology and data solutions.
+            </p>
 
-    </form>
+            <p>
+                You can reach me using the contact form or through my
+                professional channels.
+            </p>
+
+        </div>
+
+        <form id="contactForm">
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your name">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your email">
+
+            <label for="message">Message:</label>
+            <textarea
+                id="message"
+                name="message"
+                rows="6"
+                placeholder="Write your message..."
+            ></textarea>
+
+            <button type="submit">Send Message</button>
+
+            <p id="formMessage"></p>
+
+        </form>
+
+    </div>
+
+</section>
 </section>
 
     </main>
 
     <footer>
-        <p>&copy; 2026 My Personal Website</p>
-    </footer>
+
+    <div class="footer-content">
+
+        <h3>D6Tech</h3>
+
+        <p>
+            ICT Professional | Health Information Systems | Software Developer
+        </p>
+
+        <div class="footer-links">
+
+            <a href="https://github.com/DanielPhekani/my-websites"
+               target="_blank">
+                GitHub
+            </a>
+
+            <a href="#contact">
+                Contact Me
+            </a>
+
+        </div>
+
+        <p class="copyright">
+            &copy; 2026 D6Tech. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>  
 
     <script src="script.js"></script>
 
