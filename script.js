@@ -1,60 +1,117 @@
-function changeWelcome() {
-    document.querySelector("#home p").textContent =
-        "Welcome! You have just used JavaScript to change the webpage.";
-}
+/* =========================================================
+   D6TECH WEBSITE - JAVASCRIPT
+   ========================================================= */
 
-function toggleSkills() {
-    const skills = document.querySelector("#skillList");
 
-    if (skills.style.display === "none") {
-        skills.style.display = "block";
-    } else {
-        skills.style.display = "none";
-    }
-}
+/* ================= CONTACT FORM ================= */
 
 const contactForm = document.querySelector("#contactForm");
 
-contactForm.addEventListener("submit", function(event) {
+if (contactForm) {
 
-    event.preventDefault();
+    contactForm.addEventListener("submit", function(event) {
 
-    const name = document.querySelector("#name").value.trim();
-    const email = document.querySelector("#email").value.trim();
-    const message = document.querySelector("#message").value.trim();
+        // Prevent the page from refreshing
+        event.preventDefault();
 
-    const formMessage = document.querySelector("#formMessage");
+        console.log("Contact form submission detected");
 
-    if (name === "") {
-        formMessage.textContent = "Please enter your name.";
-        return;
-    }
+        const name = document.querySelector("#name").value.trim();
+        const email = document.querySelector("#email").value.trim();
+        const message = document.querySelector("#message").value.trim();
 
-    if (email === "") {
-        formMessage.textContent = "Please enter your email.";
-        return;
-    }
+        const formMessage = document.querySelector("#formMessage");
+        const submitButton = contactForm.querySelector("button[type='submit']");
 
-    if (message === "") {
-        formMessage.textContent = "Please enter a message.";
-        return;
-    }
 
-    formMessage.textContent = "Thank you! Your message is ready to be sent.";
+        // Validate name
+        if (name === "") {
+            formMessage.textContent = "Please enter your name.";
+            return;
+        }
 
-    contactForm.reset();
-});
+
+        // Validate email
+        if (email === "") {
+            formMessage.textContent = "Please enter your email.";
+            return;
+        }
+
+
+        // Validate message
+        if (message === "") {
+            formMessage.textContent = "Please enter a message.";
+            return;
+        }
+
+        // Show sending status
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending..."; 
+
+        // Send the form data to the backend
+        fetch("/api/contact", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                message: message
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+
+            formMessage.textContent = data.message;
+
+        // Clear the form
+        contactForm.reset();
+
+        // Restore the button
+        submitButton.disabled = false;
+        submitButton.textContent = "Send Message →";
+
+            
+
+        })
+        .catch(error => {
+
+            console.error("Error:", error);
+
+            formMessage.textContent =
+                "Sorry, something went wrong. Please try again.";
+
+        });
+
+    });
+
+}
+
+
+/* ================= DARK MODE ================= */
 
 const themeToggle = document.querySelector("#themeToggle");
 
-themeToggle.addEventListener("click", function() {
+if (themeToggle) {
 
-    document.body.classList.toggle("dark-mode");
+    themeToggle.addEventListener("click", function() {
 
-    if (document.body.classList.contains("dark-mode")) {
-        themeToggle.textContent = "☀️ Light Mode";
-    } else {
-        themeToggle.textContent = "🌙 Dark Mode";
-    }
+        // Toggle dark mode
+        document.body.classList.toggle("dark-mode");
 
-});
+
+        // Change button text
+        if (document.body.classList.contains("dark-mode")) {
+
+            themeToggle.textContent = "☀️ Light Mode";
+
+        } else {
+
+            themeToggle.textContent = "🌙 Dark Mode";
+
+        }
+
+    });
+
+}
