@@ -3,8 +3,9 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const nodemailer = require("nodemailer");
-
+const helmet = require("helmet");
 const app = express();
+app.use(helmet());
 
 const PORT = process.env.PORT || 3000;
 // Gmail email transporter
