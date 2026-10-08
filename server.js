@@ -56,6 +56,32 @@ if (!email.includes("@")) {
         success: false,
         message: "Please provide a valid email address."
     });
+    if (name.length > 100) {
+
+    return res.status(400).json({
+        success: false,
+        message: "Name is too long."
+    });
+
+}
+
+if (email.length > 150) {
+
+    return res.status(400).json({
+        success: false,
+        message: "Email address is too long."
+    });
+
+}
+
+if (message.length > 5000) {
+
+    return res.status(400).json({
+        success: false,
+        message: "Message is too long. Please keep it under 5000 characters."
+    });
+
+}
 
 }
 
